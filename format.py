@@ -12,7 +12,7 @@ table = pd.concat([data1, data2, data3], ignore_index=True)
 
 table = table[table['product'] == "pink morsel"]
 
-#processing price column
+
 for i in range(0,len(table)):
     price = table['price'].iloc[i]
     pattern = r'[^.0-9]' 
