@@ -1,4 +1,4 @@
-#!/Users/alexr/Desktop/quantium-starter-repo/myenv/bin/python3.9
+#!/Users/alexr/Desktop/quantium-starter-repo/myenv/bin/python3.13
 import sys
 from plotly.io._kaleido import plotly_get_chrome
 if __name__ == '__main__':

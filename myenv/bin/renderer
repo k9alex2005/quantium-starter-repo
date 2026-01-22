@@ -1,4 +1,4 @@
-#!/Users/alexr/Desktop/quantium-starter-repo/myenv/bin/python3.9
+#!/Users/alexr/Desktop/quantium-starter-repo/myenv/bin/python3.13
 import sys
 from dash.development.build_process import renderer
 if __name__ == '__main__':

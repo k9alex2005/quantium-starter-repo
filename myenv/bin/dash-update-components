@@ -1,4 +1,4 @@
-#!/Users/alexr/Desktop/quantium-starter-repo/myenv/bin/python3.9
+#!/Users/alexr/Desktop/quantium-starter-repo/myenv/bin/python3.13
 import sys
 from dash.development.update_components import cli
 if __name__ == '__main__':

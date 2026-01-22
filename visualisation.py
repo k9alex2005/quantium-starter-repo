@@ -1,6 +1,6 @@
 
 
-from dash import Dash, html, dcc
+from dash import Dash, html, dcc, Input, Output, callback
 import plotly.express as px
 import pandas as pd
 
@@ -13,12 +13,22 @@ fig.update_layout(title_text = "Pink Morsel sales of Souls Food", title_x = 0.5)
 
 app.layout = html.Div([
     dcc.Graph(
-        id="pink morsel sales by date",
+        id="sales_graph",
         figure=fig
-    )
+    ),
+
+    html.Label("Filter by region"),
+    dcc.RadioItems(["North", "South", "East", "West"], id="region")
+    
 ]
 
 )
+
+@callback(
+    Output("sales_graph","figure")
+    Input("region","value")
+    )
+
 
 if __name__ == '__main__':
     app.run(debug=True)
