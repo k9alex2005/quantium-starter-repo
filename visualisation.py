@@ -8,26 +8,33 @@ app = Dash()
 
 data = pd.read_csv("final_data.csv")
 
-fig = px.line(data, x="date", y = "sales")
-fig.update_layout(title_text = "Pink Morsel sales of Souls Food", title_x = 0.5)
 
 app.layout = html.Div([
     dcc.Graph(
-        id="sales_graph",
-        figure=fig
+        id="sales_graph"
+        
     ),
 
     html.Label("Filter by region"),
-    dcc.RadioItems(["North", "South", "East", "West"], id="region")
+    dcc.RadioItems(["north", "south", "east", "west"],"north", id="region")
     
-]
+], style={}
+
 
 )
 
+
 @callback(
-    Output("sales_graph","figure")
-    Input("region","value")
-    )
+    Output(component_id='sales_graph', component_property='figure'),
+    Input(component_id='region', component_property='value'))
+def update_graph(region_name):
+    df = data[data['region'] == region_name]
+    fig = px.line(df, x="date", y = "sales")
+    fig.update_layout(title_text = "Pink Morsel sales of Souls Food", title_x = 0.5)
+    return fig
+
+
+
 
 
 if __name__ == '__main__':
