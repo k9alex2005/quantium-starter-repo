@@ -8,10 +8,10 @@ app = Dash()
 
 data = pd.read_csv("final_data.csv")
 
-
-app.layout = html.Div([
+def app_layout():
+    return html.Div([
    
-    html.H2("Pink Morsel sales of Souls Food",style={"fontFamily":"Times New Roman","margin-left":"65px","color":"#35317A"}),
+    html.H2("Pink Morsel sales of Souls Food", id="site_header",style={"fontFamily":"Times New Roman","margin-left":"65px","color":"#35317A"}),
 
     dcc.Graph(
         id="sales_graph"
@@ -28,6 +28,8 @@ style={'backgroundColor': '#E2E4F0', "padding":"20px"}
  
 )
 
+
+app.layout = app_layout()
 
 @callback(
     Output(component_id='sales_graph', component_property='figure'),
